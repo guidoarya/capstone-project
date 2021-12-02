@@ -1,0 +1,10 @@
+.navbar-component {
+  background-color: #c3eaed;
+  /* position: fixed !important; */
+  width: 100%;
+  margin-bottom: 0px !important;
+}
+
+.logo-img {
+  width: 100px;
+}
