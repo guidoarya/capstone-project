@@ -1,0 +1,64 @@
+.row-container {
+  margin-top: 24px !important;
+}
+
+.form-login {
+  background-color: #ffffff;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 450px;
+  height: 500px;
+  padding: 70px 20px 0px 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.title-form {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.image-login {
+  width: 40vw;
+  padding-top: -20px;
+}
+
+.input {
+  width: 100%;
+  max-width: 400px;
+  font-size: 14px !important;
+  height: 44px;
+}
+
+.btn-login {
+  width: 100%;
+  max-width: 400px;
+  background-color: #009dae !important;
+  border-color: #009dae !important;
+  height: 50px;
+  margin-top: 30px !important;
+}
+
+.dont_have_acc {
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.link-to-regist {
+  text-decoration: none;
+  color: #009dae;
+  font-weight: 500;
+}
+
+.link-to-regist:hover {
+  color: #009dae;
+}
+
+@media only screen and (max-width: 767px) {
+  .image-login {
+    display: none;
+  }
+  .form-login {
+    margin: auto !important;
+  }
+}

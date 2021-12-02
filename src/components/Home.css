@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(#C2FFF9, #ffff);
+    background-repeat: no-repeat;
+    height: 500px; 
+}
+/* ================== Navbar ==================*/
+.navbar {
+    background-color: #C2FFF9;
+}
+
+.image-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.text-brand p{
+    padding: 0;
+    margin: 0;
+    color: #009DAE;
+    font-weight: bold;
+    margin-left: 10px;
+ }
+.navbrand {
+    display: flex;
+    align-items: center;
+}
+.justify-content-end {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.hamburger-react {
+    color: #009DAE;
+}
+.menu-nav {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.2rem;
+}
+
+.btn-masuk {
+    background-color: #009DAE;
+    width: 100px;
+    height: 44px;
+    border-radius: 10px;
+    color: #ffff;
+    border: none;
+ }
+.btn-reg {
+    color: #000;
+    text-decoration: none;
+}
+ /* ================== Akhir Navbar ==================*/
+
+ /* ================== Hero ==================*/
+.hero {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    height: calc(100vh - 86px);
+}
+
+.text {
+    width: 100%;
+    order: 2;
+    margin-top: 50px;
+    padding: 0px 15px;
+}
+.images {
+    width: 100%;
+    order: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-hero {
+    width: 80%;
+}
+
+.text h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+}
+
+.text h1 span, .title-content h2 span, span {
+    color: #009DAE;
+}
+
+.text p {
+    text-align: justify;
+}
+
+.btn-hero {
+    width: 180px;
+    height: 44px;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #009DAE;
+    border: none;
+}
+
+.link-login {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+ /* ================== Akhir Hero ==================*/
+
+/* ================== Content UMKM ==================*/
+
+.item-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.item-card {
+    width: 300px;
+    margin: 5px;
+}
+.content-umkm .title-content h2{
+    text-align: center;
+    font-weight: 600;
+}
+
+.detail-text p{
+    text-align: end;
+    color: #71DFE7;
+}
+
+/* ================== Akhir Content UMKM ==================*/
+
+/* ================== Revirw ==================*/
+.title-review {
+    text-align: center;
+}
+
+.review {
+    margin-top: 50px;
+}
+
+.item-review {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.item-card-review {
+    width: 300px;
+    margin: 5px;
+}
+
+
+
+/* ================== Akhir Revirw ==================*/
+
+footer {
+    background-color:#009DAE;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0px;
+    margin-top: 250px;
+}
+
+
+@media only screen and (min-width: 800px) {
+    
+}
+   
+
+@media only screen and (min-width: 1000px) {
+    .navbar {
+        background-color: transparent;
+    }
+
+    .menu-nav {
+        align-items: center;
+    }
+
+    .hero {
+        flex-direction: row;
+        margin-top: 0;
+
+    }
+    .text {
+        order: 1;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding: 0px 15px;
+    }
+    .images{
+        order: 2;
+        width: 50%;
+    }
+
+    .text h1 {
+        font-size: 2rem;
+    }    
+    
+}
+   
