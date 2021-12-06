@@ -13,7 +13,7 @@ router.get('/token', refreshToken);
 router.delete('/logout', Logout);
 
 router.get('/umkm', getUmkm);
-router.post('/umkm', verifyToken, addUmkm);
+router.post('/umkm', addUmkm);
 router.get('/detail/:id', getUmkmById);
 
 export default router;
