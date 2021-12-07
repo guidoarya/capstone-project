@@ -1,0 +1,48 @@
+.item-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.title-content h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.detail-text p {
+  text-align: end;
+  color: #71dfe7;
+}
+
+/* ================== Revirw ==================*/
+.title-review {
+  text-align: center;
+}
+
+.review {
+  margin-top: 50px;
+}
+
+.item-review {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.item-card-review {
+  width: 300px;
+  margin: 5px;
+}
+
+/* ================== Akhir Revirw ==================*/
+
+@media only screen and (min-width: 800px) {
+}
+
+@media only screen and (min-width: 1000px) {
+}

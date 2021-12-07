@@ -1,0 +1,45 @@
+.wrap-content-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-detail {
+  width: 100%;
+}
+
+.info-umkm {
+  width: 100%;
+}
+.image-detail-umkm {
+  width: 100%;
+}
+
+.title-umkm {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-detail {
+  margin-top: 70px;
+  min-height: 700px;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrap-content-detail {
+    display: flex;
+    flex-direction: row;
+  }
+  .info-umkm {
+    width: 50%;
+    padding-left: 20px;
+  }
+  .image-detail {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+}
+
+@media only screen and (min-width: 1000px) {
+}

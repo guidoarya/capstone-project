@@ -1,0 +1,101 @@
+.login-page {
+  margin-bottom: 250px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 18vh;
+  justify-content: center;
+}
+
+.form-login {
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px !important;
+  padding: 20px;
+  border-radius: 20px;
+  height: 500px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title-form {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.image-login-wrap {
+  display: none;
+}
+
+.item-login {
+  width: 100%;
+}
+.image-login {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  font-size: 14px !important;
+  height: 44px;
+}
+
+.btn-login {
+  width: 100%;
+  justify-content: center;
+  background-color: #009dae !important;
+  border-color: #009dae !important;
+  height: 50px;
+  margin-top: 30px !important;
+}
+
+.dont_have_acc {
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.link-to-regist {
+  text-decoration: none;
+  color: #009dae;
+  font-weight: 500;
+}
+
+.link-to-regist:hover {
+  color: #009dae;
+}
+@media only screen and (min-width: 600px) {
+  .image-login-wrap {
+    width: 45%;
+    margin-top: 7%;
+    display: block;
+    margin-right: 10px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .item-login {
+    width: 55%;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .image-login-wrap {
+    width: 50%;
+    margin-right: 15px;
+  }
+
+  .item-login {
+    width: 50%;
+    margin-left: 15px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .image-login-wrap {
+    margin-top: 0;
+  }
+}
