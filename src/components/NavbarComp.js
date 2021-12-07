@@ -19,7 +19,7 @@ const NavbarComponent = () => {
   return (
     <Navbar className="navbar-component" expand="lg">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/beranda">
           <Image className="logo-img" src="images/logo.png"></Image>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

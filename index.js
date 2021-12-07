@@ -7,15 +7,20 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import path from 'path';
-import { addUmkm } from './controllers/Umkm.js';
-// import addUmkm from ''
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, 'public')));
+
 const diskStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads');
+    cb(null, './public/uploads');
   },
   filename: (req, file, cb) => {
     console.log(file);
@@ -50,8 +55,7 @@ app.use(upload.single('gambar'));
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(router);
 
 app.listen(5000, () => {

@@ -134,8 +134,7 @@ const Dashboard = () => {
               <td>{umkms.kota}</td>
               <td>{umkms.deskripsi}</td>
               <td>
-                <Image className="logo-img" src={`${umkms.gambar}`}></Image>
-                {umkms.gambar}
+                <Image className="logo-img" src={umkms.gambar}></Image>
               </td>
               <td>
                 <a href={`/detail/${umkms.id}`}>Detail</a>

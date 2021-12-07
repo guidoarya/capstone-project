@@ -1,7 +1,4 @@
 import Umkm from '../models/umkmModel.js';
-import multer from 'multer';
-import path from 'path';
-import express from 'express';
 
 export const getUmkm = async (req, res) => {
   try {
@@ -22,7 +19,7 @@ export const addUmkm = async (req, res) => {
     res.send('Input image tidak adaa!');
   }
 
-  const gambar = req.file.path;
+  const gambar = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
 
   console.log(req.body);
 
