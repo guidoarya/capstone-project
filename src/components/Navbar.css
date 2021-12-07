@@ -1,0 +1,61 @@
+.navbar {
+  background-color: #c2fff9;
+}
+.image-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.text-brand p {
+  padding: 0;
+  margin: 0;
+  color: #009dae;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.navbrand {
+  display: flex;
+  align-items: center;
+}
+.justify-content-end {
+  width: 100%;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.hamburger-react {
+  color: #009dae;
+}
+.menu-nav {
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.2rem;
+}
+
+.btn-masuk {
+  background-color: #009dae;
+  width: 100px;
+  height: 44px;
+  border-radius: 10px;
+  color: #ffff;
+  border: none;
+}
+.btn-reg {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 800px) {
+}
+
+@media only screen and (min-width: 1000px) {
+  .navbar {
+    background-color: transparent;
+  }
+
+  .menu-nav {
+    align-items: center;
+  }
+}

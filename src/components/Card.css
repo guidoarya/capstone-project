@@ -1,0 +1,18 @@
+.item-card {
+  width: 300px;
+  margin: 5px;
+}
+
+.titleUMKM {
+  text-align: center;
+}
+
+.btn-detail {
+  background-color: #009dae !important;
+  border: none !important;
+  width: 200px;
+}
+
+.item-card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
