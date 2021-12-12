@@ -42,6 +42,16 @@
   color: #ffff;
   border: none;
 }
+
+.btn-keluar {
+  background-color: #f32013;
+  width: 100px;
+  height: 44px;
+  border-radius: 10px;
+  color: #ffff;
+  border: none;
+}
+
 .btn-reg {
   color: #fff;
   text-decoration: none;

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import './Home.css';
-import Hero from '../Hero';
+import HeroLogged from '../Hero-Logged';
 import CardUMKM from '../Card';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import '../Card.css';
 
-const Home = () => {
+const HomeLogged = () => {
   const [name, setName] = useState('');
   const [token, setToken] = useState('');
   const [expire, setExpire] = useState('');
@@ -20,29 +20,44 @@ const Home = () => {
 
   useEffect(() => {
     getUmkm();
+    refreshToken();
   }, []);
 
-  // axiosJWT.interceptors.request.use(
-  //   async (config) => {
-  //     const currentDate = new Date();
-  //     if (expire * 1000 < currentDate.getTime()) {
-  //       const response = await axios.get('http://localhost:5000/token');
-  //       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-  //       setToken(response.data.accessToken);
-  //       const decoded = jwt_decode(response.data.accessToken);
-  //       setName(decoded.name);
-  //       setExpire(decoded.exp);
-  //     }
-  //     return config;
-  //   },
-  //   (err) => {
-  //     return Promise.reject(err);
-  //   }
-  // );
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/token');
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+      setName(decoded.name);
+      setExpire(decoded.exp);
+    } catch (err) {
+      if (err.response) {
+        history.push('/');
+      }
+    }
+  };
+
+  axiosJWT.interceptors.request.use(
+    async (config) => {
+      const currentDate = new Date();
+      if (expire * 1000 < currentDate.getTime()) {
+        const response = await axios.get('http://localhost:5000/token');
+        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setName(decoded.name);
+        setExpire(decoded.exp);
+      }
+      return config;
+    },
+    (err) => {
+      return Promise.reject(err);
+    }
+  );
 
   const getUmkm = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/umkm');
+      const response = await axiosJWT.get('http://localhost:5000/umkm');
       setUmkm(response.data);
     } catch (error) {
       console.log(error);
@@ -52,7 +67,8 @@ const Home = () => {
   return (
     <>
       <Container>
-        <Hero />
+        <h5>Selamat datang, {name}</h5>
+        <HeroLogged />
         <div className="content-umkm">
           <div className="title-content">
             <h2>
@@ -106,4 +122,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeLogged;

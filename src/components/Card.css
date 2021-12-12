@@ -5,6 +5,8 @@
 
 .titleUMKM {
   text-align: center;
+  max-height: 30px;
+  overflow: hidden !important;
 }
 
 .btn-detail {

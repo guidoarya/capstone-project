@@ -18,7 +18,7 @@ const Login = () => {
         email: email,
         password: password,
       });
-      history.push('/beranda');
+      history.push('/beranda-logged');
     } catch (err) {
       if (err.response) {
         setMsg(err.response.data.msg);

@@ -3,13 +3,26 @@ import { Container, Image, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Hamburger from 'hamburger-react';
 import './Navbar.css';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-function NavBar() {
+function NavBarLogged() {
+  const history = useHistory();
+
+  const Logout = async () => {
+    try {
+      await axios.delete('http://localhost:5000/logout');
+      history.push('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <Navbar expand="lg" className="navbar">
         <Container>
-          <Navbar.Brand className="navbrand " href="/">
+          <Navbar.Brand className="navbrand " href="/beranda">
             <Image className="image-logo" src="images/ds.png"></Image>
             <div className="text-brand">
               <p>Bantu</p>
@@ -21,12 +34,12 @@ function NavBar() {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="justify-content-end menu-nav">
-              <Nav.Link href="/">Beranda</Nav.Link>
-              <Nav.Link className="link-login" href="/register">
+              <Nav.Link href="/beranda">Beranda</Nav.Link>
+              <Nav.Link className="link-login" to="/register">
                 Daftar
               </Nav.Link>
-              <Nav.Link href="#" href="/login">
-                <button className="btn-masuk"> Login</button>
+              <Nav.Link href="#" href="/login" onClick={Logout}>
+                <button className="btn-keluar">Logout</button>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -36,4 +49,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBarLogged;

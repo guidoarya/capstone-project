@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import './Hero.css';
 
-function Hero() {
+function HeroLogged() {
   return (
     <>
       <div className="hero">
@@ -15,8 +15,8 @@ function Hero() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a leo nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Nulla aliquam diam vel accumsan pharetra.{' '}
           </p>
           <button className="btn-hero">
-            <Link className="btn-reg" to="/login">
-              Mulai Sekarang
+            <Link className="btn-reg" to="/form-umkm">
+              Ajukan Sekarang
             </Link>
           </button>
         </div>
@@ -28,4 +28,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default HeroLogged;
