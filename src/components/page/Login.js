@@ -36,7 +36,9 @@ const Login = () => {
         <div className="item-login">
           <Form className="form-login" onSubmit={Auth}>
             <p className="mb-4 title-form">Login Form</p>
-            {/* <Alert variant="danger">{msg}</Alert> */}
+            <p className="alert-login" variant="danger">
+              {msg}
+            </p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control className="input" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>

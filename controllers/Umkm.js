@@ -1,4 +1,5 @@
 import Umkm from '../models/umkmModel.js';
+import { Sequelize } from 'sequelize';
 
 export const getUmkm = async (req, res) => {
   try {
@@ -48,6 +49,34 @@ export const getUmkmById = async (req, res) => {
       },
     });
     res.json(umkm[0]);
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
+
+const Op = Sequelize.Op;
+export const getUmkmSpecified = async (req, res) => {
+  let name = req.params.name;
+  let category = req.params.category;
+  let city = req.params.city;
+
+  console.log(name);
+
+  try {
+    const umkm = await Umkm.findAll({
+      where: {
+        nama_umkm: {
+          [Op.like]: `%${name}%`,
+        },
+        kategori: {
+          [Op.like]: `%${category}%`,
+        },
+        kota: {
+          [Op.like]: `%${city}%`,
+        },
+      },
+    });
+    res.json(umkm);
   } catch (err) {
     console.log({ message: err.message });
   }
