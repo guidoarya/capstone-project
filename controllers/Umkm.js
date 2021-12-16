@@ -81,3 +81,33 @@ export const getUmkmSpecified = async (req, res) => {
     console.log({ message: err.message });
   }
 };
+
+export const deleteUmkm = async (req, res) => {
+  try {
+    await Umkm.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm deleted',
+    });
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
+
+export const updateUmkm = async (req, res) => {
+  try {
+    await Umkm.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm updated',
+    });
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
