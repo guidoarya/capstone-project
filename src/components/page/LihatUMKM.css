@@ -30,12 +30,6 @@
   border: none !important;
 }
 
-Form {
-  width: 100%;
-  max-width: 500px;
-  margin-top: 30px;
-}
-
 .filter-content {
   display: flex;
   flex-wrap: wrap;

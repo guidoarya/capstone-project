@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Image } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapPin, faThLarge } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import './DetailUMKM.css';
+import React, { useState, useEffect } from "react";
+import { Container, Image, Navbar, Nav } from "react-bootstrap";
+import Hamburger from "hamburger-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapPin, faThLarge, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import "./DetailUMKM.css";
 
-const DetailUMKM = (props) => {
+const DetailUMKM = props => {
   const [umkm, setUmkm] = useState([]);
 
   useEffect(() => {
     getUmkmById();
   }, []);
-
   const idUmkm = props.match.params.id;
 
   const getUmkmById = async () => {
@@ -33,22 +33,36 @@ const DetailUMKM = (props) => {
               {umkm.lokasi}, {umkm.kota}
             </h2>
           </div>
+          <h3 className="kategori-icon">
+            <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {umkm.kategori}
+          </h3>
           <div className="wrap-content-detail">
             <div className="image-detail">
-              <h3>
-                <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {umkm.kategori}
-              </h3>
               <Image className="image-detail-umkm" src={umkm.gambar}></Image>
             </div>
             <div className="info-umkm">
               <div className="umkm-title">
-                <h4>
-                  <FontAwesomeIcon icon={faMapPin} className="icon-map" /> {umkm.lokasi}
-                </h4>
-                <h3>Deskripsi</h3>
-                <p>{umkm.deskripsi}f</p>
-                <h3>Item Dijual</h3>
-                <p>{umkm.jasa_produk}</p>
+                <div className="info-icon">
+                  <h4 className="d-flex">
+                    <div className="icon">
+                      {" "}
+                      <FontAwesomeIcon icon={faMapPin} className="icon-map" />{" "}
+                    </div>
+                    <div className="icon-text">{umkm.kota}</div>
+                  </h4>
+                  <h4 className="d-flex">
+                    <div className="icon">
+                      <FontAwesomeIcon icon={faPhoneAlt} className="icon-map" />{" "}
+                    </div>
+                    <div className="icon-text">{umkm.nomor_hp}</div>
+                  </h4>
+                </div>
+                <div className="desc">
+                  <h3>Deskripsi</h3>
+                  <p>{umkm.deskripsi}f</p>
+                  <h3>Item Dijual</h3>
+                  <p>{umkm.jasa_produk}</p>
+                </div>
               </div>
             </div>
           </div>

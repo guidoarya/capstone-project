@@ -1,0 +1,35 @@
+.image-addUMKM {
+  display: none;
+  width: 100%;
+  padding-left: 40px;
+}
+
+.addUMKM {
+  margin: 100px 0px;
+}
+
+.form-input-umkm {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  padding: 30px !important;
+  background-color: #fff;
+  min-height: 0px !important;
+}
+
+.btn-submit-add-umkm {
+  background-color: #009dae !important;
+  border: none !important;
+  width: 200px;
+  border-radius: 10px !important;
+}
+
+@media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 800px) {
+    .image-addUMKM {
+      display: inline;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+}

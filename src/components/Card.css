@@ -1,20 +1,94 @@
-.item-card {
-  width: 300px;
-  margin: 5px;
+.item-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 20px;
+  grid-gap: 20px;
+  overflow: hidden;
+}
+.card {
+  background-color: #1c1b29;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+  border-radius: 20px !important;
+  overflow: hidden;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.titleUMKM {
-  text-align: center;
-  max-height: 30px;
-  overflow: hidden !important;
+.card img {
+  width: 100%;
+  height: 150px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.3s ease-in-out;
+}
+
+.containers {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.details {
+  padding: 20px 10px;
+}
+.details > h3 {
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+}
+.details > p {
+  color: #000;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.containers:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.3;
+}
+.containers:after {
+  background-image: linear-gradient(135deg, #009dae, #fff);
 }
 
 .btn-detail {
   background-color: #009dae !important;
   border: none !important;
   width: 200px;
+  border-radius: 100px !important;
+  margin-bottom: 20px;
 }
 
-.item-card {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.card img:hover {
+  transform: scale(1.3);
+}
+
+.details h3 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+}
+
+.deskripsi-card {
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: #a0a0a0;
+}
+.categories-card p,
+.location-card p {
+  font-size: 18px;
+  font-weight: 500;
 }

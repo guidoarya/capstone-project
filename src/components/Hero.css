@@ -3,12 +3,13 @@
   flex-direction: column;
   margin-top: 100px;
   height: calc(100vh - 86px);
+  margin-bottom: 70px;
 }
 
 .text {
   width: 100%;
   order: 2;
-  margin-top: 50px;
+  margin-top: 70px;
   padding: 0px 15px;
 }
 .images {
@@ -52,7 +53,22 @@ span {
   color: #000;
   text-decoration: none;
 }
+
+.blob {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: -99;
+  width: 90%;
+}
+.images {
+  display: flex;
+  align-items: center;
+}
 @media only screen and (min-width: 800px) {
+  .blob {
+    width: 40%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -75,5 +91,8 @@ span {
 
   .text h1 {
     font-size: 2rem;
+  }
+  .blob {
+    width: 35%;
   }
 }

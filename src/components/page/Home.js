@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
-import './Home.css';
-import Hero from '../Hero';
-import CardUMKM from '../Card';
-import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-import '../Card.css';
+import React, { useState, useEffect } from "react";
+import { Container, Card, Button } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import "./Home.css";
+import Hero from "../Hero";
+import CardUMKM from "../Card";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import "../Card.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
-  const [name, setName] = useState('');
-  const [token, setToken] = useState('');
-  const [expire, setExpire] = useState('');
+  const [name, setName] = useState("");
+  const [token, setToken] = useState("");
+  const [expire, setExpire] = useState("");
   const [users, setUsers] = useState([]);
   const [umkm, setUmkm] = useState([]);
 
@@ -42,7 +44,7 @@ const Home = () => {
 
   const getUmkm = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/umkm');
+      const response = await axios.get("http://localhost:5000/umkm");
       setUmkm(response.data);
     } catch (error) {
       console.log(error);
@@ -62,31 +64,45 @@ const Home = () => {
           <div className="item-content">
             {umkm.map((listUmkm, index) => (
               <div className="item-card" key={listUmkm.id}>
-                <Card className="card">
-                  <Card.Img variant="top" width="300" height="200" src={listUmkm.gambar} />
-                  <Card.Body>
-                    <Card.Title className="titleUMKM">{listUmkm.nama_umkm}</Card.Title>
-                    <Card.Text maxLength="10">{listUmkm.deskripsi}</Card.Text>
-                    <div className="d-flex justify-content-center">
-                      <Link to={`/detail/${listUmkm.id}`}>
-                        <Button variant="primary" className="btn-detail">
-                          Detail
-                        </Button>
-                      </Link>
+                <div className="card">
+                  <div className="containers">
+                    <img src={listUmkm.gambar} alt="" />
+                  </div>
+                  <div className="details">
+                    <h3>{listUmkm.nama_umkm}</h3>
+                    <div className="categories-card">
+                      <p>
+                        <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {listUmkm.kategori}
+                      </p>
                     </div>
-                  </Card.Body>
-                </Card>
+                    <div className="location-card">
+                      <p>
+                        <FontAwesomeIcon icon={faMapPin} className="icon-map" /> {listUmkm.kota}
+                      </p>
+                    </div>
+                    <p className="deskripsi-card">{listUmkm.deskripsi}</p>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <Link to={`/detail/${listUmkm.id}`}>
+                      <Button className="btn-detail">Detail</Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="detail-text">
+          <div className="detail-text d-flex">
             <Link className="btn-reg" to="/list-umkm">
-              <p>Selengkapnya</p>
+              <div>
+                <p>
+                  Selengkapnya <FontAwesomeIcon icon={faArrowRight} className="icon-map" />
+                </p>
+              </div>
             </Link>
           </div>
         </div>
 
-        <div className="review">
+        {/* <div className="review">
           <div className="title-review">
             <h3>Apa Kata Mereka ?</h3>
             <p>
@@ -96,11 +112,11 @@ const Home = () => {
             </p>
           </div>
           <div className="item-review">
-            {/* <Reviewer />
             <Reviewer />
-            <Reviewer /> */}
+            <Reviewer />
+            <Reviewer />
           </div>
-        </div>
+        </div> */}
       </Container>
     </>
   );
