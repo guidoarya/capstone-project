@@ -15,7 +15,6 @@ const AddUmkm = () => {
   const [nomor_hp, setNoHp] = useState("");
   const [jasa_produk, setJasaProduk] = useState("");
   const [gambar, setGambar] = useState("");
-
   const [expire, setExpire] = useState("");
   const [token, setToken] = useState("");
   const [name, setName] = useState("");
@@ -41,7 +40,6 @@ const AddUmkm = () => {
   };
 
   const axiosJWT = axios.create();
-
   axiosJWT.interceptors.request.use(
     async config => {
       const currentDate = new Date();
@@ -118,13 +116,15 @@ const AddUmkm = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Kategori UMKM</Form.Label>
-                  <Form.Control
-                    name="kategori"
-                    type="text"
-                    placeholder="Kategori UMKM"
-                    value={kategori}
-                    onChange={e => setKategori(e.target.value)}
-                  />
+
+                  <Form.Select name="kategori" value={kategori} onChange={e => setKategori(e.target.value)}>
+                    <option disabled>Pilih Kategori</option>
+                    <option>Kuliner</option>
+                    <option>Otomotif</option>
+                    <option>Kesenian</option>
+                    <option>Agribisnis</option>
+                    <option>Fashion</option>
+                  </Form.Select>
                 </Form.Group>
               </Col>
             </Row>
@@ -132,7 +132,7 @@ const AddUmkm = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nomor Hp</Form.Label>
-                  <Form.Control name="nomor_hp" type="number" placeholder="Password" value={nomor_hp} onChange={e => setNoHp(e.target.value)} />
+                  <Form.Control name="nomor_hp" type="number" placeholder="No Hp" value={nomor_hp} onChange={e => setNoHp(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>

@@ -1,10 +1,10 @@
-import { Sequelize } from 'sequelize';
-import db from '../config/database.js';
+import { Sequelize } from "sequelize";
+import db from "../config/database.js";
 
 const { DataTypes } = Sequelize;
 
 const Umkm = db.define(
-  'tb_umkm',
+  "tb_umkm",
   {
     nama_umkm: {
       type: DataTypes.STRING,

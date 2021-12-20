@@ -56,7 +56,27 @@
   color: #fff;
   text-decoration: none;
 }
+.nav-link {
+  position: relative;
+}
 
+.btn-effect {
+  margin-right: 15px;
+}
+.btn-effect::after {
+  content: "";
+  position: absolute;
+  background-color: #009dae;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-effect:hover::after {
+  width: 100%;
+}
 @media only screen and (min-width: 800px) {
 }
 

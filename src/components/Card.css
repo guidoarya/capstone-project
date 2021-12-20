@@ -11,7 +11,7 @@
   border-radius: 20px !important;
   overflow: hidden;
   max-width: 300px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .card img {

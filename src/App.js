@@ -14,6 +14,7 @@ import NavBarLogged from "./components/NavBar-Logged";
 import HomeLogged from "./components/page/Home-Logged";
 import DetailUMKM from "./components/page/DetailUMKM";
 import LihatUMKM from "./components/page/LihatUMKM";
+import DetailUMKM2 from "./components/page/DetailUMKM2";
 
 function App() {
   return (
@@ -47,12 +48,18 @@ function App() {
           <LihatUMKM />
           <Footer />
         </Route>
+        <Route path="/list-umkm2">
+          <NavBarLogged />
+          <LihatUMKM />
+          <Footer />
+        </Route>
         <Route path="/listUmkm-logged">
           <NavBarLogged />
           <LihatUMKM />
           <Footer />
         </Route>
         <Route path="/detail/:id" component={DetailUMKM}></Route>
+        <Route path="/detail-log/:id" component={DetailUMKM2}></Route>
       </Switch>
     </BrowserRouter>
   );

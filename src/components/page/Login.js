@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Form, Button, Alert, Row, Col, Container, Image, Navbar, Nav } from "react-bootstrap";
+import { Form, Button, Container, Image, Navbar, Nav } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import Hamburger from "hamburger-react";
+import swal from "sweetalert";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [msg, setMsg] = useState("");
   const history = useHistory();
 
@@ -22,8 +22,10 @@ const Login = () => {
       });
       history.push("/beranda");
     } catch (err) {
+      console.log("hello");
       if (err.response) {
         setMsg(err.response.data.msg);
+        swal("Terjadi Kesalahan", "Username/Password tidak ditemukan", "error");
       }
     }
   };
@@ -44,8 +46,10 @@ const Login = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="justify-content-end menu-nav">
-              <Nav.Link href="/">Beranda</Nav.Link>
-              <Nav.Link className="link-login" href="/register">
+              <Nav.Link href="/" className="btn-effect">
+                Beranda
+              </Nav.Link>
+              <Nav.Link className="link-login btn-effect" href="/register">
                 Daftar
               </Nav.Link>
             </Nav>

@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin, faThLarge, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./DetailUMKM.css";
-import NavBar from "../NavBar";
+import NavBarLogged from "../NavBar-Logged";
 
-const DetailUMKM = props => {
+const DetailUMKM2 = props => {
   const [umkm, setUmkm] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const DetailUMKM = props => {
 
   return (
     <>
-      <NavBar />
+      <NavBarLogged />
       <Container>
         <div className="content-detail" key={umkm.id}>
           <div className="title-umkm">
@@ -74,4 +74,4 @@ const DetailUMKM = props => {
   );
 };
 
-export default DetailUMKM;
+export default DetailUMKM2;

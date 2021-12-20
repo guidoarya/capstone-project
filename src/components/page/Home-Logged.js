@@ -5,10 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Home.css";
 import HeroLogged from "../Hero-Logged";
-import CardUMKM from "../Card";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import "../Card.css";
+import Reviewer from "../Reviewer";
 
 const HomeLogged = () => {
   const [name, setName] = useState("");
@@ -22,40 +21,7 @@ const HomeLogged = () => {
 
   useEffect(() => {
     getUmkm();
-    refreshToken();
   }, []);
-
-  const refreshToken = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/token");
-      setToken(response.data.accessToken);
-      const decoded = jwt_decode(response.data.accessToken);
-      setName(decoded.name);
-      setExpire(decoded.exp);
-    } catch (err) {
-      if (err.response) {
-        history.push("/");
-      }
-    }
-  };
-
-  axiosJWT.interceptors.request.use(
-    async config => {
-      const currentDate = new Date();
-      if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("http://localhost:5000/token");
-        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-        setToken(response.data.accessToken);
-        const decoded = jwt_decode(response.data.accessToken);
-        setName(decoded.name);
-        setExpire(decoded.exp);
-      }
-      return config;
-    },
-    err => {
-      return Promise.reject(err);
-    }
-  );
 
   const getUmkm = async () => {
     try {
@@ -69,7 +35,6 @@ const HomeLogged = () => {
   return (
     <>
       <Container>
-        <h5>Selamat datang, {name}</h5>
         <HeroLogged />
         <div className="content-umkm">
           <div className="title-content">
@@ -101,7 +66,7 @@ const HomeLogged = () => {
                     <p className="deskripsi-card">{listUmkm.deskripsi}</p>
                   </div>
                   <div className="d-flex justify-content-center">
-                    <Link to={`/detail/${listUmkm.id}`}>
+                    <Link to={`/detail-log/${listUmkm.id}`}>
                       <Button className="btn-detail">Detail</Button>
                     </Link>
                   </div>
@@ -111,7 +76,7 @@ const HomeLogged = () => {
           </div>
           <div className="detail-text">
             <div className="detail-text d-flex">
-              <Link className="btn-reg" to="/list-umkm">
+              <Link className="btn-reg" to="/list-umkm2">
                 <div>
                   <p>
                     Selengkapnya <FontAwesomeIcon icon={faArrowRight} className="icon-map" />
@@ -132,9 +97,9 @@ const HomeLogged = () => {
             </p>
           </div>
           <div className="item-review">
-            {/* <Reviewer />
-            <Reviewer />
-            <Reviewer /> */}
+            <Reviewer text="Menggunakan bantuUMKM membuat UMKM saya menjadi lebih dikenal masyarakat." name="Wilantara" />
+            <Reviewer text="UMKM saya menjadi lebih banyak pembeli semenjak saya posting di bantuUMKM." name="Guido" />
+            <Reviewer text="Websitenya menarik, membantu pada UMKM untuk mengenalkan UMKM agar dikenal luas." name="Arlan" />
           </div>
         </div>
       </Container>

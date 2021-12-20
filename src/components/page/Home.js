@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Container, Card, Button } from "react-bootstrap";
+import { Container, Button, Dropdown, DropdownButton } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./Home.css";
 import Hero from "../Hero";
-import CardUMKM from "../Card";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import "../Card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Reviewer from "../Reviewer";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -102,7 +101,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <div className="review">
+        <div className="review">
           <div className="title-review">
             <h3>Apa Kata Mereka ?</h3>
             <p>
@@ -112,11 +111,11 @@ const Home = () => {
             </p>
           </div>
           <div className="item-review">
-            <Reviewer />
-            <Reviewer />
-            <Reviewer />
+            <Reviewer text="Menggunakan bantuUMKM membuat UMKM saya menjadi lebih dikenal masyarakat." name="Wilantara" />
+            <Reviewer text="UMKM saya menjadi lebih banyak pembeli semenjak saya posting di bantuUMKM." name="Guido" />
+            <Reviewer text="Websitenya menarik, membantu pada UMKM untuk mengenalkan UMKM agar dikenal luas." name="Arlan" />
           </div>
-        </div> */}
+        </div>
       </Container>
     </>
   );

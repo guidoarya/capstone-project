@@ -93,7 +93,9 @@ const Register = () => {
             </Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="justify-content-end menu-nav">
-                <Nav.Link href="/">Beranda</Nav.Link>
+                <Nav.Link href="/" className="btn-effect">
+                  Beranda
+                </Nav.Link>
                 <Nav.Link href="#" href="/login">
                   <button className="btn-masuk"> Login</button>
                 </Nav.Link>

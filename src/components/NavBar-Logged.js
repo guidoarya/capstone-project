@@ -23,7 +23,7 @@ function NavBarLogged() {
       <Navbar expand="lg" className="navbar">
         <Container>
           <Navbar.Brand className="navbrand " href="/beranda">
-            <Image className="image-logo" src="images/ds.png"></Image>
+            <Image className="image-logo" src="../images/ds.png"></Image>
             <div className="text-brand">
               <p>Bantu</p>
               <p>UMKM</p>
@@ -34,7 +34,9 @@ function NavBarLogged() {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="justify-content-end menu-nav">
-              <Nav.Link href="/beranda">Beranda</Nav.Link>
+              <Nav.Link href="/beranda" className="btn-effect">
+                Beranda
+              </Nav.Link>
               <Nav.Link href="#" href="/" onClick={Logout}>
                 <button className="btn-keluar">Logout</button>
               </Nav.Link>

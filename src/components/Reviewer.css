@@ -1,0 +1,32 @@
+.item-card-review {
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.quote-2 {
+  transform: rotate(180deg);
+}
+
+.item-card-review p {
+  text-align: center;
+}
+
+.profile-review {
+  margin-top: 20px;
+}
+.profile-review,
+.profile-review p {
+  text-align: center;
+}
+
+.icon-char {
+  display: inline;
+  margin-right: 5px;
+}
+
+.profile-review p {
+  display: inline;
+  font-weight: 500;
+}

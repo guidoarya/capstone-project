@@ -1,12 +1,10 @@
-import { Container, Image, Form, FormControl, Button, Dropdown, Card } from "react-bootstrap";
-import CardUMKM from "../Card";
+import { Container, Image, Form, FormControl, Button, Dropdown, DropdownButton } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { useHistory, Link } from "react-router-dom";
 import "./LihatUMKM.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faMapPin, faThLarge } from "@fortawesome/free-solid-svg-icons";
 
 const LihatUMKM = () => {
   const [name, setName] = useState("");
@@ -14,20 +12,42 @@ const LihatUMKM = () => {
   const [expire, setExpire] = useState("");
   const [users, setUsers] = useState([]);
   const [umkm, setUmkm] = useState([]);
-  let [keywordCategory, setKeywordCategory] = useState("Kuliner");
-  let [keywordCity, setKeywordCity] = useState("Jakarta");
+  const [city, setCity] = useState([]);
+  const [kategori, setKategori] = useState([]);
+  let [keywordCategory, setKeywordCategory] = useState("Kategori UMKM");
+  let [keywordCity, setKeywordCity] = useState("Kota");
   let [keywordName, setKeywordName] = useState("a");
 
   const history = useHistory();
 
   useEffect(() => {
     getUmkm();
+    getCity();
+    getKategori();
   }, []);
 
   const getUmkm = async () => {
     try {
       const response = await axios.get("http://localhost:5000/umkm");
       setUmkm(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getCity = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/city");
+      setCity(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getKategori = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/kategori");
+      setKategori(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -82,8 +102,11 @@ const LihatUMKM = () => {
                       {`${keywordCategory}`}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item eventKey="Kuliner">Kuliner</Dropdown.Item>
-                      <Dropdown.Item eventKey="Otomotif">Otomotif</Dropdown.Item>
+                      {kategori.map((listUmkm, index) => (
+                        <div className="ff" key={listUmkm.kategori}>
+                          <Dropdown.Item eventKey={listUmkm.kategori}>{listUmkm.kategori}</Dropdown.Item>
+                        </div>
+                      ))}
                     </Dropdown.Menu>
                   </Dropdown>
                   <Dropdown className="dropdown" onSelect={e => setKeywordCity(e)}>
@@ -91,9 +114,11 @@ const LihatUMKM = () => {
                       {`${keywordCity}`}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item eventKey="Jakarta">Jakarta</Dropdown.Item>
-                      <Dropdown.Item eventKey="Bekasi">Bekasi</Dropdown.Item>
-                      <Dropdown.Item eventKey="Bali">Bali</Dropdown.Item>
+                      {city.map((listUmkm, index) => (
+                        <div className="ff" key={listUmkm.kota}>
+                          <Dropdown.Item eventKey={listUmkm.kota}>{listUmkm.kota}</Dropdown.Item>
+                        </div>
+                      ))}
                     </Dropdown.Menu>
                   </Dropdown>
                   {/* <Dropdown className="dropdown">
