@@ -56,6 +56,12 @@
   text-align: center;
 }
 
+.admin_login {
+  font-size: 14px;
+  margin-top: 100px;
+  text-align: center;
+}
+
 .link-to-regist {
   text-decoration: none;
   color: #009dae;

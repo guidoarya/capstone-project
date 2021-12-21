@@ -1,13 +1,10 @@
-import Umkm from "../models/umkmModel.js";
-import { Sequelize } from "sequelize";
-import db from "../config/database.js";
-
-console.log(db);
+import Umkm from '../models/umkmModel.js';
+import { Sequelize } from 'sequelize';
 
 export const getCity = async (req, res) => {
   try {
     const city = await Umkm.findAll({
-      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("kota")), "kota"]],
+      attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('kota')), 'kota']],
     });
     res.json(city);
   } catch (err) {
@@ -18,7 +15,7 @@ export const getCity = async (req, res) => {
 export const getKategori = async (req, res) => {
   try {
     const kategori = await Umkm.findAll({
-      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("kategori")), "kategori"]],
+      attributes: [[Sequelize.fn('DISTINCT', Sequelize.col('kategori')), 'kategori']],
     });
     res.json(kategori);
   } catch (err) {
@@ -29,7 +26,7 @@ export const getKategori = async (req, res) => {
 export const getUmkm = async (req, res) => {
   try {
     const umkm = await Umkm.findAll({
-      attributes: ["id", "nama_umkm", "lokasi", "kota", "deskripsi", "kategori", "nomor_hp", "jasa_produk", "gambar"],
+      attributes: ['id', 'nama_umkm', 'lokasi', 'kota', 'deskripsi', 'kategori', 'nomor_hp', 'jasa_produk', 'gambar'],
     });
     res.json(umkm);
   } catch (err) {
@@ -42,10 +39,10 @@ export const addUmkm = async (req, res) => {
   console.log(req.file.path);
 
   if (!req.file) {
-    res.send("Input image tidak adaa!");
+    res.send('Input image tidak adaa!');
   }
 
-  const gambar = req.protocol + "://" + req.get("host") + "/uploads/" + req.file.filename;
+  const gambar = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
 
   console.log(req.body);
 
@@ -60,7 +57,7 @@ export const addUmkm = async (req, res) => {
       jasa_produk: jasa_produk,
       gambar: gambar,
     });
-    res.json({ msg: "Umkm succesfully created!" });
+    res.json({ msg: 'Umkm succesfully created!' });
   } catch (err) {
     console.log(err);
   }
@@ -102,6 +99,36 @@ export const getUmkmSpecified = async (req, res) => {
       },
     });
     res.json(umkm);
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
+
+export const deleteUmkm = async (req, res) => {
+  try {
+    await Umkm.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm deleted',
+    });
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
+
+export const updateUmkm = async (req, res) => {
+  try {
+    await Umkm.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm updated',
+    });
   } catch (err) {
     console.log({ message: err.message });
   }

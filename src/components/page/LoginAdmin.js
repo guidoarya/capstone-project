@@ -1,26 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Form, Button, Container, Image, Navbar, Nav } from 'react-bootstrap';
+import { Form, Button, Alert, Row, Col, Container, Image, Navbar, Nav } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
-import Hamburger from 'hamburger-react';
 import swal from 'sweetalert';
 
-const Login = () => {
+const LoginAdmin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [msg, setMsg] = useState('');
   const history = useHistory();
 
   const Auth = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/login', {
+      await axios.post('http://localhost:5000/loginAdmin', {
         email: email,
         password: password,
       });
-      history.push('/beranda');
+      history.push('/admin-dashboard');
     } catch (err) {
       console.log(err);
       if (err.response) {
@@ -32,37 +32,14 @@ const Login = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="navbar">
-        <Container>
-          <Navbar.Brand className="navbrand " href="/">
-            <Image className="image-logo" src="images/ds.png"></Image>
-            <div className="text-brand">
-              <p>Bantu</p>
-              <p>UMKM</p>
-            </div>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="offcanvasNavbar">
-            <Hamburger></Hamburger>
-          </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="justify-content-end menu-nav">
-              <Nav.Link href="/" className="btn-effect">
-                Beranda
-              </Nav.Link>
-              <Nav.Link className="link-login btn-effect" href="/register">
-                Daftar
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
       <Container className="login-page">
         <div className="image-login-wrap">
           <Image className="image-login" src="images/login-image.svg"></Image>
         </div>
         <div className="item-login">
           <Form className="form-login" onSubmit={Auth}>
-            <p className="mb-4 title-form">Login Form</p>
+            <p className="mb-4 title-form">Login ADMIN</p>
+            {/* <Alert variant="danger">{msg}</Alert> */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control className="input" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
@@ -76,16 +53,9 @@ const Login = () => {
               </Button>
             </div>
             <p className="dont_have_acc">
-              Belum memiliki akun?{' '}
-              <Link className="link-to-regist" to="/register">
-                Daftar sekarang!
-              </Link>
-            </p>
-
-            <p className="admin_login">
-              Anda admin?{' '}
-              <Link className="link-to-regist" to="/loginAdmin">
-                Silahkan login disini
+              Login sebagai user?{' '}
+              <Link className="link-to-regist" to="/login">
+                Login disini!
               </Link>
             </p>
           </Form>
@@ -95,4 +65,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginAdmin;

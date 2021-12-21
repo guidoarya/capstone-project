@@ -1,20 +1,18 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import { Routes } from 'react-router';
-import Login from "./components/page/Login";
-// import Register from './components/Register';
-import Dashboard from "./components/Dashboard";
-import NavbarComponent from "./components/NavbarComp";
-import AddUmkm from "./components/AddUmkm";
-import DetailUmkm from "./components/DetailUmkm";
-import Register from "./components/page/Register";
-import NavBar from "./components/NavBar";
-import Home from "./components/page/Home";
-import Footer from "./components/Footer";
-import NavBarLogged from "./components/NavBar-Logged";
-import HomeLogged from "./components/page/Home-Logged";
-import DetailUMKM from "./components/page/DetailUMKM";
-import LihatUMKM from "./components/page/LihatUMKM";
-import DetailUMKM2 from "./components/page/DetailUMKM2";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './components/page/Login';
+import AddUmkm from './components/AddUmkm';
+import Register from './components/page/Register';
+import NavBar from './components/NavBar';
+import Home from './components/page/Home';
+import Footer from './components/Footer';
+import NavBarLogged from './components/NavBar-Logged';
+import HomeLogged from './components/page/Home-Logged';
+import DetailUMKM from './components/page/DetailUMKM';
+import LihatUMKM from './components/page/LihatUMKM';
+import DetailUMKM2 from './components/page/DetailUMKM2';
+import LoginAdmin from './components/page/LoginAdmin';
+import AddUmkmAdmin from './components/AddUmkmAdmin';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -60,6 +58,16 @@ function App() {
         </Route>
         <Route path="/detail/:id" component={DetailUMKM}></Route>
         <Route path="/detail-log/:id" component={DetailUMKM2}></Route>
+
+        <Route path="/loginAdmin">
+          <LoginAdmin />
+        </Route>
+        <Route path="/admin-dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/addUmkmAdmin">
+          <AddUmkmAdmin />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -100,3 +100,33 @@ export const Logout = async (req, res) => {
   res.clearCookie('refreshToken');
   return res.sendStatus(200);
 };
+
+export const deleteUsers = async (req, res) => {
+  try {
+    await Users.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm deleted',
+    });
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};
+
+export const updateUsers = async (req, res) => {
+  try {
+    await Users.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json({
+      message: 'Umkm updated',
+    });
+  } catch (err) {
+    console.log({ message: err.message });
+  }
+};

@@ -1,0 +1,32 @@
+.modal-box {
+  display: none;
+  position: fixed;
+  padding: 40px;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  background-color: rgb(0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box Form {
+  max-width: 500px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto !important;
+}
+
+.btn-cancel {
+  margin-left: 10px;
+  border-radius: 10px !important;
+}
+
+.btn-cancelUser {
+  margin-top: 10px;
+  height: 50px;
+  width: 100%;
+}
