@@ -118,7 +118,13 @@ const AddUmkmAdmin = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Kategori UMKM</Form.Label>
-                  <Form.Control name="kategori" type="text" placeholder="Kategori UMKM" value={kategori} onChange={(e) => setKategori(e.target.value)} />
+                <Form.Select name="kategori" value={kategori} onChange={e => setKategori(e.target.value)}>
+                    <option>Otomotif</option>
+                    <option>Kesenian</option>
+                    <option>Agribisnis</option>
+                    <option>Fashion</option>
+                    <option>Kuliner</option>
+                  </Form.Select>
                 </Form.Group>
               </Col>
             </Row>
