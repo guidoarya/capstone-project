@@ -227,6 +227,9 @@ const Dashboard = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="justify-content-end menu-nav">
+     <Button className="mx-2" onClick={goToAddUmkm} variant="primary">
+                AddUmkm
+              </Button>
               <Button className="mx-2" onClick={LogoutAdmin} variant="danger">
                 Logout
               </Button>
