@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Container, Image, Navbar, Nav } from "react-bootstrap";
-import Hamburger from "hamburger-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faThLarge, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import "./DetailUMKM.css";
-import NavBar from "../NavBar";
+import React, { useState, useEffect } from 'react';
+import { Container, Image } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapPin, faThLarge, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import './DetailUMKM.css';
+import NavBar from '../NavBar';
 
-const DetailUMKM = props => {
+const DetailUMKM = (props) => {
   const [umkm, setUmkm] = useState([]);
 
   useEffect(() => {
@@ -47,14 +46,14 @@ const DetailUMKM = props => {
                 <div className="info-icon">
                   <h4 className="d-flex">
                     <div className="icon">
-                      {" "}
-                      <FontAwesomeIcon icon={faMapPin} className="icon-map" />{" "}
+                      {' '}
+                      <FontAwesomeIcon icon={faMapPin} className="icon-map" />{' '}
                     </div>
                     <div className="icon-text">{umkm.kota}</div>
                   </h4>
                   <h4 className="d-flex">
                     <div className="icon">
-                      <FontAwesomeIcon icon={faPhoneAlt} className="icon-map" />{" "}
+                      <FontAwesomeIcon icon={faPhoneAlt} className="icon-map" />{' '}
                     </div>
                     <div className="icon-text">{umkm.nomor_hp}</div>
                   </h4>

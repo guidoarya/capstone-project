@@ -1,7 +1,7 @@
-import { React } from "react";
-import { Image } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import "./Hero.css";
+import { React } from 'react';
+import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Hero.css';
 
 function Hero() {
   return (
@@ -11,10 +11,7 @@ function Hero() {
           <h1>
             Daftarkan <span>UMKM</span> Anda Mulai <span>Sekarang</span>
           </h1>
-          <p>
-            Bantu UMKM merupakan sebuah website yang menyediakan tempat untuk para pengusaha untuk mempromosikan UMKM nya. Sehingga para pengusaha
-            UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat luas.
-          </p>
+          <p>Bantu UMKM merupakan sebuah website yang menyediakan tempat untuk para pengusaha untuk mempromosikan UMKM nya. Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat luas.</p>
           <button className="btn-hero">
             <Link className="btn-reg" to="/login">
               Mulai Sekarang

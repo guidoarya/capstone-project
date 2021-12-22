@@ -1,38 +1,36 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Form, Button, Container, Image, Navbar, Nav } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
-import "./Login.css";
-import Hamburger from "hamburger-react";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import { Form, Button, Container, Image, Navbar, Nav } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import './Login.css';
+import Hamburger from 'hamburger-react';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
   const history = useHistory();
 
-  const Auth = async e => {
+  const Auth = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/login", {
+      await axios.post('http://localhost:5000/login', {
         email: email,
         password: password,
       });
-      history.push("/beranda");
+      history.push('/beranda');
     } catch (err) {
-      console.log(err);
-      if (err.response) {
-        setMsg(err.response.data.msg);
-        Swal.fire({
-          icon: "error",
-          title: "Terjadi Kesalahan",
-          text: "Username/password tidak ditemukan",
-          confirmButtonColor: "#009dae",
-          confirmButtonText: "Kembali",
-        });
-      }
+      setMsg(err.response.data.msg);
+      console.log(msg);
+      Swal.fire({
+        icon: 'error',
+        title: 'Terjadi Kesalahan',
+        text: msg,
+        confirmButtonColor: '#009dae',
+        confirmButtonText: 'Kembali',
+      });
     }
   };
 
@@ -70,25 +68,11 @@ const Login = () => {
           <Form className="form-login" onSubmit={Auth}>
             <p className="mb-4 title-form">Login Form</p>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control
-                required
-                className="input"
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
+              <Form.Control required className="input" type="email" placeholder="Enter email" defaultValue={email} onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control
-                required
-                className="input"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
+              <Form.Control required className="input" type="password" placeholder="Password" defaultValue={password} onChange={(e) => setPassword(e.target.value)} />
             </Form.Group>
             <div className="d-flex justify-content-center">
               <Button className="btn-login" type="submit">
@@ -96,14 +80,14 @@ const Login = () => {
               </Button>
             </div>
             <p className="dont_have_acc">
-              Belum memiliki akun?{" "}
+              Belum memiliki akun?{' '}
               <Link className="link-to-regist" to="/register">
                 Daftar sekarang!
               </Link>
             </p>
 
             <p className="admin_login">
-              Anda admin?{" "}
+              Anda admin?{' '}
               <Link className="link-to-regist" to="/loginAdmin">
                 Silahkan login disini
               </Link>

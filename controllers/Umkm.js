@@ -1,5 +1,6 @@
 import Umkm from '../models/umkmModel.js';
 import { Sequelize } from 'sequelize';
+import fs from 'fs';
 
 export const getCity = async (req, res) => {
   try {
@@ -105,6 +106,13 @@ export const getUmkmSpecified = async (req, res) => {
 };
 
 export const deleteUmkm = async (req, res) => {
+  const findPict = await Umkm.findOne({
+    where: {
+      id: req.params.id,
+    },
+  });
+
+  console.log(findPict);
   try {
     await Umkm.destroy({
       where: {
@@ -114,6 +122,7 @@ export const deleteUmkm = async (req, res) => {
     res.json({
       message: 'Umkm deleted',
     });
+    fs.unlinkSync('');
   } catch (err) {
     console.log({ message: err.message });
   }

@@ -98,13 +98,13 @@ const AddUmkmAdmin = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nama UMKM</Form.Label>
-                  <Form.Control name="nama_umkm" type="text" placeholder="Nama UMKM" value={nama_umkm} onChange={(e) => setNamaUmkm(e.target.value)} />
+                  <Form.Control name="nama_umkm" type="text" placeholder="Nama UMKM" defaultValue={nama_umkm} onChange={(e) => setNamaUmkm(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Lokasi</Form.Label>
-                  <Form.Control name="lokasi" type="text" placeholder="Lokasi UMKM" value={lokasi} onChange={(e) => setLokasi(e.target.value)} />
+                  <Form.Control name="lokasi" type="text" placeholder="Lokasi UMKM" defaultValue={lokasi} onChange={(e) => setLokasi(e.target.value)} />
                 </Form.Group>
               </Col>
             </Row>
@@ -112,18 +112,21 @@ const AddUmkmAdmin = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Kota</Form.Label>
-                  <Form.Control name="kota" type="text" placeholder="Kota UMKM" value={kota} onChange={(e) => setKota(e.target.value)} />
+                  <Form.Control name="kota" type="text" placeholder="Kota UMKM" defaultValue={kota} onChange={(e) => setKota(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Kategori UMKM</Form.Label>
-                <Form.Select name="kategori" value={kategori} onChange={e => setKategori(e.target.value)}>
-                    <option>Otomotif</option>
-                    <option>Kesenian</option>
-                    <option>Agribisnis</option>
-                    <option>Fashion</option>
-                    <option>Kuliner</option>
+                  <Form.Select required name="kategori" defaultValue={kategori} onChange={(e) => setKategori(e.target.value)}>
+                    <option defaultValue="" disabled selected>
+                      Pilih Kategori
+                    </option>
+                    <option defaultValue="Kuliner">Kuliner</option>
+                    <option defaultValue="Otomotif">Otomotif</option>
+                    <option defaultValue="Kesenian">Kesenian</option>
+                    <option defaultValue="Agribisnis">Agribisnis</option>
+                    <option defaultValue="Fashion">Fashion</option>
                   </Form.Select>
                 </Form.Group>
               </Col>
@@ -132,19 +135,19 @@ const AddUmkmAdmin = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nomor Hp</Form.Label>
-                  <Form.Control name="nomor_hp" type="number" placeholder="Password" value={nomor_hp} onChange={(e) => setNoHp(e.target.value)} />
+                  <Form.Control name="nomor_hp" type="number" placeholder="Password" defaultValue={nomor_hp} onChange={(e) => setNoHp(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Jasa Produk</Form.Label>
-                  <Form.Control type="text" placeholder="Jasa/produk" value={jasa_produk} onChange={(e) => setJasaProduk(e.target.value)} />
+                  <Form.Control type="text" placeholder="Jasa/produk" defaultValue={jasa_produk} onChange={(e) => setJasaProduk(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={12}>
                 <Form.Group className="mb-3">
                   <Form.Label>Deskripsi UMKM</Form.Label>
-                  <Form.Control name="deskripsi" type="text" as="textarea" placeholder="Deskripsi UMKM" value={deskripsi} onChange={(e) => setDeskripsi(e.target.value)} />
+                  <Form.Control name="deskripsi" type="text" as="textarea" placeholder="Deskripsi UMKM" defaultValue={deskripsi} onChange={(e) => setDeskripsi(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={12}>

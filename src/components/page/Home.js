@@ -1,49 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Container, Button, Dropdown, DropdownButton } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import "./Home.css";
-import Hero from "../Hero";
-import axios from "axios";
-import "../Card.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Reviewer from "../Reviewer";
+import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import './Home.css';
+import Hero from '../Hero';
+import axios from 'axios';
+import '../Card.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapPin, faThLarge, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Reviewer from '../Reviewer';
 
 const Home = () => {
-  const [name, setName] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
   const [umkm, setUmkm] = useState([]);
-
-  const axiosJWT = axios.create();
-  const history = useHistory();
 
   useEffect(() => {
     getUmkm();
   }, []);
 
-  // axiosJWT.interceptors.request.use(
-  //   async (config) => {
-  //     const currentDate = new Date();
-  //     if (expire * 1000 < currentDate.getTime()) {
-  //       const response = await axios.get('http://localhost:5000/token');
-  //       config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-  //       setToken(response.data.accessToken);
-  //       const decoded = jwt_decode(response.data.accessToken);
-  //       setName(decoded.name);
-  //       setExpire(decoded.exp);
-  //     }
-  //     return config;
-  //   },
-  //   (err) => {
-  //     return Promise.reject(err);
-  //   }
-  // );
-
   const getUmkm = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/umkm");
+      const response = await axios.get('http://localhost:5000/umkm');
       setUmkm(response.data);
     } catch (error) {
       console.log(error);

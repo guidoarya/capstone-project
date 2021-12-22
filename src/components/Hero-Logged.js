@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Image } from "react-bootstrap";
-import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import "./Hero.css";
+import React, { useState, useEffect } from 'react';
+import { Image } from 'react-bootstrap';
+import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+import './Hero.css';
 
 const HeroLogged = () => {
-  const [name, setName] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
+  const [name, setName] = useState('');
+  const [token, setToken] = useState('');
+  const [expire, setExpire] = useState('');
   const [umkm, setUmkm] = useState([]);
 
   const axiosJWT = axios.create();
@@ -22,23 +21,23 @@ const HeroLogged = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/token");
+      const response = await axios.get('http://localhost:5000/token');
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setName(decoded.name);
       setExpire(decoded.exp);
     } catch (err) {
       if (err.response) {
-        history.push("/");
+        history.push('/');
       }
     }
   };
 
   axiosJWT.interceptors.request.use(
-    async config => {
+    async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("http://localhost:5000/token");
+        const response = await axios.get('http://localhost:5000/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -47,14 +46,14 @@ const HeroLogged = () => {
       }
       return config;
     },
-    err => {
+    (err) => {
       return Promise.reject(err);
     }
   );
 
   const getUmkm = async () => {
     try {
-      const response = await axiosJWT.get("http://localhost:5000/umkm");
+      const response = await axiosJWT.get('http://localhost:5000/umkm');
       setUmkm(response.data);
     } catch (error) {
       console.log(error);
@@ -68,10 +67,7 @@ const HeroLogged = () => {
           <h1>
             Daftarkan <span>UMKM</span> Anda Mulai <span>Sekarang</span>
           </h1>
-          <p>
-            Bantu UMKM merupakan sebuah website yang menyediakan tempat untuk para pengusaha untuk mempromosikan UMKM nya. Sehingga para pengusaha
-            UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat luas.
-          </p>
+          <p>Bantu UMKM merupakan sebuah website yang menyediakan tempat untuk para pengusaha untuk mempromosikan UMKM nya. Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat luas.</p>
           <button className="btn-hero">
             <Link className="btn-reg" to="/form-umkm">
               Ajukan Sekarang

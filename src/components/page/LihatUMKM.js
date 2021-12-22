@@ -1,24 +1,18 @@
-import { Container, Image, Form, FormControl, Button, Dropdown, DropdownButton } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useHistory, Link } from "react-router-dom";
-import "./LihatUMKM.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { Container, Image, Form, FormControl, Button, Dropdown } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import './LihatUMKM.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapPin, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
 const LihatUMKM = () => {
-  const [name, setName] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
   const [umkm, setUmkm] = useState([]);
   const [city, setCity] = useState([]);
   const [kategori, setKategori] = useState([]);
-  let [keywordCategory, setKeywordCategory] = useState("Kategori UMKM");
-  let [keywordCity, setKeywordCity] = useState("Kota");
-  let [keywordName, setKeywordName] = useState("a");
-
-  const history = useHistory();
+  let [keywordCategory, setKeywordCategory] = useState('Kategori UMKM');
+  let [keywordCity, setKeywordCity] = useState('Kota');
+  let [keywordName, setKeywordName] = useState('a');
 
   useEffect(() => {
     getUmkm();
@@ -28,7 +22,7 @@ const LihatUMKM = () => {
 
   const getUmkm = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/umkm");
+      const response = await axios.get('http://localhost:5000/umkm');
       setUmkm(response.data);
     } catch (error) {
       console.log(error);
@@ -37,7 +31,7 @@ const LihatUMKM = () => {
 
   const getCity = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/city");
+      const response = await axios.get('http://localhost:5000/city');
       setCity(response.data);
     } catch (error) {
       console.log(error);
@@ -46,14 +40,14 @@ const LihatUMKM = () => {
 
   const getKategori = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/kategori");
+      const response = await axios.get('http://localhost:5000/kategori');
       setKategori(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const searchUmkm = async e => {
+  const searchUmkm = async (e) => {
     e.preventDefault();
     console.log(keywordName);
     try {
@@ -80,15 +74,7 @@ const LihatUMKM = () => {
               </div>
               <div className="form-search">
                 <Form className="d-flex" onSubmit={searchUmkm}>
-                  <FormControl
-                    id="keywordSearch"
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    onKeyDown={getUmkm}
-                    onChange={e => setKeywordName(e.target.value)}
-                  />
+                  <FormControl id="keywordSearch" type="search" placeholder="Search" className="me-2" aria-label="Search" onKeyDown={getUmkm} onChange={(e) => setKeywordName(e.target.value)} />
                   <Button id="btn-search" className="btn-search" type="submit">
                     Search
                   </Button>
@@ -97,7 +83,7 @@ const LihatUMKM = () => {
               <div className="filter-wrap">
                 <h3>Filter</h3>
                 <div className="filter-content">
-                  <Dropdown className="dropdown" id="dropdown-kategori" onSelect={e => setKeywordCategory(e)}>
+                  <Dropdown className="dropdown" id="dropdown-kategori" onSelect={(e) => setKeywordCategory(e)}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic" value="Kategori">
                       {`${keywordCategory}`}
                     </Dropdown.Toggle>
@@ -109,7 +95,7 @@ const LihatUMKM = () => {
                       ))}
                     </Dropdown.Menu>
                   </Dropdown>
-                  <Dropdown className="dropdown" onSelect={e => setKeywordCity(e)}>
+                  <Dropdown className="dropdown" onSelect={(e) => setKeywordCity(e)}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {`${keywordCity}`}
                     </Dropdown.Toggle>
@@ -121,14 +107,6 @@ const LihatUMKM = () => {
                       ))}
                     </Dropdown.Menu>
                   </Dropdown>
-                  {/* <Dropdown className="dropdown">
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Urutan Ditambahkan
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown> */}
                 </div>
               </div>
             </div>

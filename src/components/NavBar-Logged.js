@@ -1,18 +1,17 @@
-import { React } from "react";
-import { Container, Image, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Hamburger from "hamburger-react";
-import "./Navbar.css";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { React } from 'react';
+import { Container, Image, Navbar, Nav } from 'react-bootstrap';
+import Hamburger from 'hamburger-react';
+import './Navbar.css';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function NavBarLogged() {
   const history = useHistory();
 
   const Logout = async () => {
     try {
-      await axios.delete("http://localhost:5000/logout");
-      history.push("/");
+      await axios.delete('http://localhost:5000/logout');
+      history.push('/');
     } catch (err) {
       console.log(err);
     }
@@ -37,7 +36,7 @@ function NavBarLogged() {
               <Nav.Link href="/beranda" className="btn-effect">
                 Beranda
               </Nav.Link>
-              <Nav.Link href="#" href="/" onClick={Logout}>
+              <Nav.Link href="/" onClick={Logout}>
                 <button className="btn-keluar">Logout</button>
               </Nav.Link>
             </Nav>

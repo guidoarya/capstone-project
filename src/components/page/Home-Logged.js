@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin, faThLarge, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import "./Home.css";
-import HeroLogged from "../Hero-Logged";
-import axios from "axios";
-import "../Card.css";
-import Reviewer from "../Reviewer";
+import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapPin, faThLarge, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import './Home.css';
+import HeroLogged from '../Hero-Logged';
+import axios from 'axios';
+import '../Card.css';
+import Reviewer from '../Reviewer';
 
 const HomeLogged = () => {
-  const [name, setName] = useState("");
-  const [token, setToken] = useState("");
-  const [expire, setExpire] = useState("");
-  const [users, setUsers] = useState([]);
   const [umkm, setUmkm] = useState([]);
 
   const axiosJWT = axios.create();
-  const history = useHistory();
 
   useEffect(() => {
     getUmkm();
@@ -25,7 +20,7 @@ const HomeLogged = () => {
 
   const getUmkm = async () => {
     try {
-      const response = await axiosJWT.get("http://localhost:5000/umkm");
+      const response = await axiosJWT.get('http://localhost:5000/umkm');
       setUmkm(response.data);
     } catch (error) {
       console.log(error);

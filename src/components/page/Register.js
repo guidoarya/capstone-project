@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import { Form, Button, Alert, Container, Row, Col, Image, Navbar, Nav } from "react-bootstrap";
-import axios from "axios";
-import { useHistory, Link } from "react-router-dom";
-import Hamburger from "hamburger-react";
-import "./Register.css";
+import React, { useState } from 'react';
+import { Form, Button, Container, Image, Navbar, Nav } from 'react-bootstrap';
+import axios from 'axios';
+import { useHistory, Link } from 'react-router-dom';
+import Hamburger from 'hamburger-react';
+import Swal from 'sweetalert2';
+import './Register.css';
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
-  const [nohp, setNoHp] = useState("");
-  const [kota, setKota] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confPassword, setConfPassword] = useState('');
+  const [nohp, setNoHp] = useState('');
+  const [kota, setKota] = useState('');
 
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState();
 
   const history = useHistory();
 
-  const handleRegister = async e => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/users", {
+      await axios.post('http://localhost:5000/users', {
         name: name,
         email: email,
         password: password,
@@ -28,55 +29,28 @@ const Register = () => {
         nohp: nohp,
         kota: kota,
       });
-      history.push("/");
+      history.push('/register');
     } catch (err) {
-      if (err.response) {
-        setMsg(err.response.data.msg);
+      try {
+        await setMsg(err.response.data.msg);
+        handleMsg(msg);
+      } catch (error) {
+        console.log(error);
       }
     }
   };
 
+  const handleMsg = async (message) => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Terjadi Kesalahan',
+      text: message,
+      confirmButtonColor: '#009dae',
+      confirmButtonText: 'Kembali',
+    });
+  };
+
   return (
-    // <div className="form-container mt-5">
-    //
-    // <Form onSubmit={handleRegister}>
-    // <h1 className="mb-4">Login Form</h1>
-    //   <Alert variant="danger">{msg}</Alert>
-    //   <Form.Group className="mb-3">
-    //     <Form.Label>Name</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3">
-    //     <Form.Label>Email address</Form.Label>
-    //     <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3">
-    //     <Form.Label>Phone Number</Form.Label>
-    //     <Form.Control type="number" placeholder="Enter your phone number" value={nohp} onChange={(e) => setNoHp(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3">
-    //     <Form.Label>City</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter your city" value={kota} onChange={(e) => setKota(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="formBasicPassword">
-    //     <Form.Label>Password</Form.Label>
-    //     <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="formBasicPassword">
-    //     <Form.Label>Confirm Password</Form.Label>
-    //     <Form.Control type="password" placeholder="Confirm Password" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
-    //   </Form.Group>
-
-    //   <Button variant="primary" type="submit">
-    //     Submit
-    //   </Button>
-    // </Form>
-    // </div>
     <>
       <Container>
         <Navbar expand="lg" className="navbar">
@@ -96,8 +70,8 @@ const Register = () => {
                 <Nav.Link href="/" className="btn-effect">
                   Beranda
                 </Nav.Link>
-                <Nav.Link href="#" href="/login">
-                  <button className="btn-masuk"> Login</button>
+                <Nav.Link href="/login">
+                  <button className="btn-masuk">Login</button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -107,41 +81,34 @@ const Register = () => {
           <div className="form-regis">
             <Form onSubmit={handleRegister}>
               <h1 className="mb-4">Register Form</h1>
-              {/* <Alert variant="danger">{msg}</Alert> */}
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
-                <Form.Control required type="text" placeholder="Enter name" value={name} onChange={e => setName(e.target.value)} />
+                <Form.Control required type="text" placeholder="Enter name" defaultValue={name} onChange={(e) => setName(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control required type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
+                <Form.Control required type="email" placeholder="Enter email" defaultValue={email} onChange={(e) => setEmail(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control required type="number" placeholder="Enter your phone number" value={nohp} onChange={e => setNoHp(e.target.value)} />
+                <Form.Control required type="number" placeholder="Enter your phone number" defaultValue={nohp} onChange={(e) => setNoHp(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>City</Form.Label>
-                <Form.Control required type="text" placeholder="Enter your city" value={kota} onChange={e => setKota(e.target.value)} />
+                <Form.Control required type="text" placeholder="Enter your city" defaultValue={kota} onChange={(e) => setKota(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control required type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                <Form.Control required type="password" placeholder="Password" defaultValue={password} onChange={(e) => setPassword(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  required
-                  type="password"
-                  placeholder="Confirm Password"
-                  value={confPassword}
-                  onChange={e => setConfPassword(e.target.value)}
-                />
+                <Form.Control required type="password" placeholder="Confirm Password" defaultValue={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
               </Form.Group>
 
               <Button className="btn-submit-register" variant="primary" type="submit">
@@ -149,7 +116,7 @@ const Register = () => {
               </Button>
             </Form>
             <p className="have_acc">
-              Sudah memiliki akun?{" "}
+              Sudah memiliki akun?{' '}
               <Link className="link-to-login" to="/login">
                 Login
               </Link>

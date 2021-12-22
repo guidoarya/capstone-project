@@ -15,6 +15,24 @@ export const getUsers = async (req, res) => {
 
 export const Register = async (req, res) => {
   const { name, email, password, confPassword, nohp, kota } = req.body;
+
+  const checkEmail = await Users.findOne({
+    where: {
+      email: email,
+    },
+  });
+
+  if (checkEmail) {
+    return res.status(400).json({
+      msg: 'Email has been used!',
+    });
+  }
+  if (!name || !email || !password || !confPassword || !nohp || !kota) {
+    return res.status(400).json({
+      msg: 'All fields must be filled!',
+    });
+  }
+
   if (password !== confPassword) return res.status(400).json({ msg: 'Password and confirm password not match!' });
   const salt = await bcrypt.genSalt();
   const hashPassword = await bcrypt.hash(password, salt);

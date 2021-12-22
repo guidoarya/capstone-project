@@ -1,8 +1,7 @@
-import { React } from "react";
-import { Container, Image, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Hamburger from "hamburger-react";
-import "./Navbar.css";
+import { React } from 'react';
+import { Container, Image, Navbar, Nav } from 'react-bootstrap';
+import Hamburger from 'hamburger-react';
+import './Navbar.css';
 
 function NavBar() {
   return (
@@ -27,8 +26,8 @@ function NavBar() {
               <Nav.Link className="link-login btn-effect" href="/register">
                 Daftar
               </Nav.Link>
-              <Nav.Link href="#" href="/login">
-                <button className="btn-masuk"> Login</button>
+              <Nav.Link href="/login">
+                <button className="btn-masuk">Login</button>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
