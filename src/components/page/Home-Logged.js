@@ -36,73 +36,71 @@ const HomeLogged = () => {
     <>
       <Container>
         <HeroLogged />
-        <div className="content-umkm">
-          <div className="title-content">
-            <h2>
-              Lihat <span>UMKM</span>
-            </h2>
-          </div>
+      </Container>
+      <div className="content-umkm">
+        <div className="title-content">
+          <h2>
+            Lihat <span>UMKM</span>
+          </h2>
+        </div>
+        <Container>
           <div className="item-content">
-            {umkm.map((listUmkm, index) => (
+            {umkm.slice(0, 4).map((listUmkm, index) => (
               <div className="item-card" key={listUmkm.id}>
-                <div className="card">
-                  <div className="containers">
-                    <img src={listUmkm.gambar} alt="" />
-                  </div>
-                  <div className="details">
-                    <h3>{listUmkm.nama_umkm}</h3>
+                <Link to={`/detail-log/${listUmkm.id}`}>
+                  <div className="card">
+                    <div className="containers">
+                      <img src={listUmkm.gambar} alt="" />
+                    </div>
                     <div className="categories-card">
-                      <p>
-                        {" "}
-                        <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {listUmkm.kategori}
-                      </p>
+                      <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {listUmkm.kategori}
                     </div>
-                    <div className="location-card">
-                      <p>
-                        {" "}
-                        <FontAwesomeIcon icon={faMapPin} className="icon-map" /> {listUmkm.kota}
-                      </p>
+                    <div className="details">
+                      <h3>{listUmkm.nama_umkm}</h3>
+
+                      <p className="deskripsi-card">{listUmkm.deskripsi}</p>
+                      <div className="location-card">
+                        <p>
+                          <FontAwesomeIcon icon={faMapPin} className="icon-map" /> {listUmkm.kota}
+                        </p>
+                      </div>
                     </div>
-                    <p className="deskripsi-card">{listUmkm.deskripsi}</p>
                   </div>
-                  <div className="d-flex justify-content-center">
-                    <Link to={`/detail-log/${listUmkm.id}`}>
-                      <Button className="btn-detail">Detail</Button>
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
-          <div className="detail-text">
-            <div className="detail-text d-flex">
-              <Link className="btn-reg" to="/list-umkm2">
-                <div>
-                  <p>
-                    Selengkapnya <FontAwesomeIcon icon={faArrowRight} className="icon-map" />
-                  </p>
-                </div>
-              </Link>
+        </Container>
+        <div className="detail-text d-flex">
+          <Link className="btn-reg" to="/list-umkm-log">
+            <div>
+              <p>
+                Selengkapnya <FontAwesomeIcon icon={faArrowRight} className="icon-map" />
+              </p>
             </div>
-          </div>
+          </Link>
         </div>
-
-        <div className="review">
-          <div className="title-review">
-            <h3>Apa Kata Mereka ?</h3>
-            <p>
-              Beberapa Komentar dari pengguna
-              <br></br>
-              <span>BantuUMKM</span>
-            </p>
-          </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#C2FFF9" fill-opacity="1" d="M0,288L1440,128L1440,320L0,320Z"></path>
+      </svg>
+      <div className="review">
+        <div className="title-review">
+          <h3>Apa Kata Mereka ?</h3>
+          <p>
+            Beberapa Komentar dari pengguna
+            <br></br>
+            <span>BantuUMKM</span>
+          </p>
+        </div>
+        <Container>
           <div className="item-review">
             <Reviewer text="Menggunakan bantuUMKM membuat UMKM saya menjadi lebih dikenal masyarakat." name="Wilantara" />
             <Reviewer text="UMKM saya menjadi lebih banyak pembeli semenjak saya posting di bantuUMKM." name="Guido" />
             <Reviewer text="Websitenya menarik, membantu pada UMKM untuk mengenalkan UMKM agar dikenal luas." name="Arlan" />
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </>
   );
 };

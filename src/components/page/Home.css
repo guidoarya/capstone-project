@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   margin-top: 30px;
 }
 .title-content h2 {
@@ -12,7 +12,6 @@
 }
 
 .detail-text p {
-  color: #71dfe7;
   background-color: #ffe652;
   color: #009dae;
   font-weight: bold;
@@ -22,7 +21,12 @@
   margin-top: 30px;
 }
 .detail-text {
-  justify-content: end;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+.detail-text:hover {
+  transform: translateX(20px);
 }
 
 /* ================== Revirw ==================*/
@@ -31,7 +35,8 @@
 }
 
 .review {
-  margin-top: 50px;
+  background-color: #c2fff9;
+  padding-bottom: 30px;
 }
 
 .item-review {
@@ -40,7 +45,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px;
+  gap: 40px;
 }
 
 .item-card-review {
@@ -50,6 +56,13 @@
 
 /* ================== Akhir Revirw ==================*/
 @media only screen and (min-width: 600px) {
+  .content-umkm {
+    min-height: 100vh;
+  }
+  .review {
+    min-height: 100vh;
+    padding-bottom: 30px;
+  }
 }
 
 @media only screen and (min-width: 800px) {

@@ -96,13 +96,27 @@ const AddUmkm = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nama UMKM</Form.Label>
-                  <Form.Control name="nama_umkm" type="text" placeholder="Nama UMKM" value={nama_umkm} onChange={e => setNamaUmkm(e.target.value)} />
+                  <Form.Control
+                    required
+                    name="nama_umkm"
+                    type="text"
+                    placeholder="Nama UMKM"
+                    value={nama_umkm}
+                    onChange={e => setNamaUmkm(e.target.value)}
+                  />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Lokasi</Form.Label>
-                  <Form.Control name="lokasi" type="text" placeholder="Lokasi UMKM" value={lokasi} onChange={e => setLokasi(e.target.value)} />
+                  <Form.Control
+                    required
+                    name="lokasi"
+                    type="text"
+                    placeholder="Lokasi UMKM"
+                    value={lokasi}
+                    onChange={e => setLokasi(e.target.value)}
+                  />
                 </Form.Group>
               </Col>
             </Row>
@@ -110,7 +124,7 @@ const AddUmkm = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Kota</Form.Label>
-                  <Form.Control name="kota" type="text" placeholder="Kota UMKM" value={kota} onChange={e => setKota(e.target.value)} />
+                  <Form.Control required name="kota" type="text" placeholder="Kota UMKM" value={kota} onChange={e => setKota(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
@@ -132,13 +146,13 @@ const AddUmkm = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nomor Hp</Form.Label>
-                  <Form.Control name="nomor_hp" type="number" placeholder="No Hp" value={nomor_hp} onChange={e => setNoHp(e.target.value)} />
+                  <Form.Control required name="nomor_hp" type="number" placeholder="No Hp" value={nomor_hp} onChange={e => setNoHp(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Jasa Produk</Form.Label>
-                  <Form.Control type="text" placeholder="Jasa/produk" value={jasa_produk} onChange={e => setJasaProduk(e.target.value)} />
+                  <Form.Control required type="text" placeholder="Jasa/produk" value={jasa_produk} onChange={e => setJasaProduk(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={12}>
@@ -158,6 +172,7 @@ const AddUmkm = () => {
                 <Form.Group className="mb-3">
                   <Form.Label>Gambar</Form.Label>
                   <Form.Control
+                    required
                     id="input-gambar"
                     encType="multipart/form-data"
                     name="gambar"

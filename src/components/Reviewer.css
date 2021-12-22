@@ -1,8 +1,9 @@
 .item-card-review {
-  width: 300px;
+  width: 500px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   padding: 10px;
   border-radius: 20px;
+  background-color: #fff;
 }
 
 .quote-2 {
@@ -27,6 +28,13 @@
 }
 
 .profile-review p {
-  display: inline;
   font-weight: 500;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.profile-review img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }

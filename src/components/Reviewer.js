@@ -7,6 +7,13 @@ function Reviewer(props) {
   return (
     <>
       <div className="item-card-review">
+        <div className="profile-review">
+          <div className="image-char">
+            <img src="https://www.clipartmax.com/png/middle/204-2045091_group-together-teamwork-icon-people-icon-flat-png.png" />
+          </div>
+
+          <p>{props.name}</p>
+        </div>
         <div className="text-review">
           <h3>
             {" "}
@@ -17,14 +24,6 @@ function Reviewer(props) {
             {" "}
             <FontAwesomeIcon icon={faQuoteLeft} className="icon-map quote-2" />
           </h3>
-          <div className="profile-review">
-            <div className="icon-char">
-              {" "}
-              <FontAwesomeIcon icon={faUserAlt} className="icon-map" />
-            </div>
-
-            <p>{props.name}</p>
-          </div>
         </div>
       </div>
     </>

@@ -139,32 +139,26 @@ const LihatUMKM = () => {
           <div className="item-content item-page-list">
             {umkm.map((listUmkm, index) => (
               <div className="item-card" key={listUmkm.id}>
-                <div className="item-card" key={listUmkm.id}>
+                <Link to={`/detail/${listUmkm.id}`}>
                   <div className="card">
                     <div className="containers">
                       <img src={listUmkm.gambar} alt="" />
                     </div>
+                    <div className="categories-card">
+                      <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {listUmkm.kategori}
+                    </div>
                     <div className="details">
                       <h3>{listUmkm.nama_umkm}</h3>
-                      <div className="categories-card">
-                        <p>
-                          <FontAwesomeIcon icon={faThLarge} className="icon-map" /> {listUmkm.kategori}
-                        </p>
-                      </div>
+
+                      <p className="deskripsi-card">{listUmkm.deskripsi}</p>
                       <div className="location-card">
                         <p>
                           <FontAwesomeIcon icon={faMapPin} className="icon-map" /> {listUmkm.kota}
                         </p>
                       </div>
-                      <p className="deskripsi-card">{listUmkm.deskripsi}</p>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                      <Link to={`/detail/${listUmkm.id}`}>
-                        <Button className="btn-detail">Detail</Button>
-                      </Link>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

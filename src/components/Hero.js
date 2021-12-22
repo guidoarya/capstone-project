@@ -12,8 +12,8 @@ function Hero() {
             Daftarkan <span>UMKM</span> Anda Mulai <span>Sekarang</span>
           </h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a leo nulla. Vestibulum ante ipsum primis in faucibus orci luctus et
-            ultrices posuere cubilia curae; Suspendisse potenti. Nulla aliquam diam vel accumsan pharetra.{" "}
+            Bantu UMKM merupakan sebuah website yang menyediakan tempat untuk para pengusaha untuk mempromosikan UMKM nya. Sehingga para pengusaha
+            UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat luas.
           </p>
           <button className="btn-hero">
             <Link className="btn-reg" to="/login">

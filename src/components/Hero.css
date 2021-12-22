@@ -66,6 +66,10 @@ span {
   align-items: center;
 }
 
+.btn-reg:hover {
+  color: #ffff;
+}
+
 @media only screen and (min-width: 600px) {
   .hero {
     height: calc(100vh - 86px);

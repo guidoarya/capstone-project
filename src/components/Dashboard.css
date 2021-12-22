@@ -30,3 +30,43 @@
   height: 50px;
   width: 100%;
 }
+
+.dasboard-admin {
+  padding: 0px 20px;
+}
+
+table {
+  background-color: #fff;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.tabelUser,
+.tabelUMKM {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+  padding: 30px;
+  border-radius: 20px;
+  overflow: scroll;
+}
+
+.tabelUMKM {
+  margin-top: 50px;
+}
+
+.title-admin {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.btn-admin {
+  margin: 10px;
+  width: 100px;
+}
+
+.modal-box {
+  text-align: start;
+}

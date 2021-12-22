@@ -110,32 +110,38 @@ const Register = () => {
               {/* <Alert variant="danger">{msg}</Alert> */}
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter name" value={name} onChange={e => setName(e.target.value)} />
+                <Form.Control required type="text" placeholder="Enter name" value={name} onChange={e => setName(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
+                <Form.Control required type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="Enter your phone number" value={nohp} onChange={e => setNoHp(e.target.value)} />
+                <Form.Control required type="number" placeholder="Enter your phone number" value={nohp} onChange={e => setNoHp(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>City</Form.Label>
-                <Form.Control type="text" placeholder="Enter your city" value={kota} onChange={e => setKota(e.target.value)} />
+                <Form.Control required type="text" placeholder="Enter your city" value={kota} onChange={e => setKota(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                <Form.Control required type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" placeholder="Confirm Password" value={confPassword} onChange={e => setConfPassword(e.target.value)} />
+                <Form.Control
+                  required
+                  type="password"
+                  placeholder="Confirm Password"
+                  value={confPassword}
+                  onChange={e => setConfPassword(e.target.value)}
+                />
               </Form.Group>
 
               <Button className="btn-submit-register" variant="primary" type="submit">
