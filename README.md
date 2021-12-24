@@ -41,7 +41,7 @@ atau
 ### `npm run start`
 
 ## Login Admin 
-email : guidoarya@gmail.com
-pass  : 123
+*email : guidoarya@gmail.com
+*pass  : 123
 
 
