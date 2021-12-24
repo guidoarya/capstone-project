@@ -135,7 +135,7 @@ const AddUmkmAdmin = () => {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nomor Hp</Form.Label>
-                  <Form.Control name="nomor_hp" type="number" placeholder="Password" defaultValue={nomor_hp} onChange={(e) => setNoHp(e.target.value)} />
+                  <Form.Control name="nomor_hp" type="number" placeholder="Nomor Hp" defaultValue={nomor_hp} onChange={(e) => setNoHp(e.target.value)} />
                 </Form.Group>
               </Col>
               <Col md={6}>
