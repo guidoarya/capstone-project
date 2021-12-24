@@ -37,3 +37,9 @@ atau
 ### `npm run build`
 2. Jalankan perintah start, untuk menjalankan websitenya
 ### `npm run start`
+
+## Login Admin 
+email : guidoarya@gmail.com
+pass  : 123
+
+
