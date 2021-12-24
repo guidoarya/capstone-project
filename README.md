@@ -9,6 +9,15 @@ Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat
 * Express JS
 * Node JS
 
+## Library or External Repository
+* SweetAlert2 : https://sweetalert2.github.io/
+* React Bootstrap : https://react-bootstrap.github.io/
+* Hamburger React : https://hamburger-react.netlify.app/
+* Font Awesome : https://fontawesome.com/
+* Multer : https://github.com/expressjs/multer
+* Sequelize : https://github.com/sequelize/sequelize
+
+
 # Getting Started
 
 ## How To Install
