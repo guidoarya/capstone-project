@@ -13,15 +13,15 @@ Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat
 
 ## How To Install
 1. Download atau clone repository ini, dan jalankan perintah
-*** `npm install`
+### `npm install`
 
 ## Backend
 1. Pastikan mysql sudah terinstall dan file umkm.sqk terimport
 2. Jalankan perintah, untuk menjalankan server
-*** `node index.js`
+### `node index.js`
 
 ## Frontend
 1. Jalankan build
-*** `npm run build`
+### `npm run build`
 2. Jalankan perintah start, untuk menjalankan websitenya
-*** `npm run start`
+### `npm run start`
