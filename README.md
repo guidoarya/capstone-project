@@ -16,6 +16,7 @@ Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat
 * Font Awesome : https://fontawesome.com/
 * Multer : https://github.com/expressjs/multer
 * Sequelize : https://github.com/sequelize/sequelize
+* Nodemon : https://github.com/remy/nodemon
 
 
 # Getting Started
