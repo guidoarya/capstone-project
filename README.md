@@ -25,12 +25,14 @@ Sehingga para pengusaha UMKM dapat menyebarluaskan profil UMKM nya ke masyarakat
 ### `npm install`
 
 ## Backend
-1. Pastikan mysql sudah terinstall dan file umkm.sqk terimport
+1. Pastikan mysql sudah terinstall dan file umkm.sql terimport
 2. Jalankan perintah, untuk menjalankan server
 ### `node index.js`
+atau
+### `nodemon index.js`
 
 ## Frontend
-1. Jalankan build
+1. Jalankan perintah build
 ### `npm run build`
 2. Jalankan perintah start, untuk menjalankan websitenya
 ### `npm run start`
